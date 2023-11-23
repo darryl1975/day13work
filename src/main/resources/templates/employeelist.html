@@ -42,6 +42,10 @@
                     <td data-th-text="*{emp.salary}"></td>
                     <td data-th-text="*{emp.birthDay}"></td>
                     <td data-th-text="*{emp.postalCode}"></td>
+                    <td>
+                        <a th:href="@{/employees/employeeupdate/{email}(email=${emp.email})}" class="btn btn-secondary">Update</a>
+                        <a th:href="@{/employees/employeedelete/{email}(email=${emp.email})}" class="btn btn-danger">Delete</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
