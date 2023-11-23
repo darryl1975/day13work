@@ -1,5 +1,6 @@
 package sg.edu.nus.iss.day13work.controller;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,13 +42,15 @@ public class EmployeeController {
     }
 
     @PostMapping("/saveEmployee")
-    public String saveEmployee(@Valid @ModelAttribute("employee") Employee employeeForm, BindingResult result, Model model) {
+    public String saveEmployee(@Valid @ModelAttribute("employee") Employee employeeForm, BindingResult result, Model model) throws FileNotFoundException {
         
         if(result.hasErrors()) {
             return "employeeadd";
         }
 
-        return "redirect:/employees/home";
+        Boolean returnResult = empRepo.save(employeeForm);
+
+        return "redirect:/employees/list";
     }
 
 }
