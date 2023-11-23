@@ -35,7 +35,7 @@ public class Employee {
     @NotBlank(message = "Email is a mandatory field")
     private String email;
 
-    @Pattern(regexp = "(\\8|9)[0-9]{7}", message = "Invalid phone number entered")
+    @Pattern(regexp = "(8|9)[0-9]{7}", message = "Invalid phone number entered")
     private String phoneNo;
 
     @Min(value = 1500, message = "Minimum salary starts from 1500")
@@ -49,6 +49,5 @@ public class Employee {
     @Digits(fraction = 0, integer = 6, message = "Postal code format must be 6 digits")
     @Min(value = 111111, message = "Starts from 1111111")
     @Max(value = 899999, message = "Ends at 899999")
-    private Integer PostalCode;
-
+    private Integer PostalCode;    
 }

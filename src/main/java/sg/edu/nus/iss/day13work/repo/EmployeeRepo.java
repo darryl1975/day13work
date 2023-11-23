@@ -19,7 +19,7 @@ import sg.edu.nus.iss.day13work.model.Employee;
 @Repository
 public class EmployeeRepo {
 
-    // windows users: c://data
+    // windows users: c:\\data
     // macOS users: /Users/Darryl/data
     final String dirPath = "/Users/Darryl/data";
 
