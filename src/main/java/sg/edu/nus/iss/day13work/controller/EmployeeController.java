@@ -50,7 +50,9 @@ public class EmployeeController {
 
         Boolean returnResult = empRepo.save(employeeForm);
 
-        return "redirect:/employees/list";
+        // return "redirect:/employees/list";
+        model.addAttribute("savedEmployee", employeeForm);
+        return "success";
     }
 
 }
