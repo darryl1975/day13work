@@ -1,5 +1,7 @@
 package sg.edu.nus.iss.day13work.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,16 @@ public class EmployeeController {
     @Autowired
     EmployeeRepo empRepo;
 
+    @GetMapping("/list")
+    public String employeeList(Model model) {
+        List<Employee> employees = empRepo.findAll();
+        
+        model.addAttribute("employees", employees);
+
+        return "employeelist";
+
+    }
+
     @GetMapping("/addnew")
     public String employeeAdd(Model model) {
         Employee emp = new Employee();
@@ -35,7 +47,7 @@ public class EmployeeController {
             return "employeeadd";
         }
 
-        return "";
+        return "redirect:/employees/home";
     }
 
 }
