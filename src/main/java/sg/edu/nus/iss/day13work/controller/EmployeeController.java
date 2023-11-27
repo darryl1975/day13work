@@ -64,7 +64,7 @@ public class EmployeeController {
 
         Employee emp = empRepo.findByEmail(email);
 
-        Boolean Result = empRepo.delete(emp);
+        Boolean result = empRepo.delete(emp);
 
         return "redirect:/employees/list";
     }
